@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const userRoutes = require("./routes/userRoute.js");
 const messageRoutes = require("./routes/messageRoute.js");
 const socket = require("socket.io");
-
+const port = process.env.PORT
 
 const app = express();
 require("dotenv").config();
@@ -31,8 +31,8 @@ app.use("/api/messages",messageRoutes);
 
 
 
-const server = app.listen(process.env.PORT,()=> {
-    console.log(`Server Started on port ${process.env.PORT}`);
+const server = app.listen(port,()=> {
+    console.log(`Server Started on port ${port}`);
 })
 
 const io = socket(server, {
