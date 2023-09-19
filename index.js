@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const userRoutes = require("./routes/userRoute.js");
 const messageRoutes = require("./routes/messageRoute.js");
 const socket = require("socket.io");
-const port = process.env.PORT
+const port = process.env.PORT || 6000
 
 const app = express();
 require("dotenv").config();
