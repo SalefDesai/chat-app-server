@@ -39,7 +39,7 @@ module.exports.getAllMessages = async(req,res,next) => {
         res.json(projectMessages);
 
     } catch (error) {
-        
+        next(error);
     }
 }
 

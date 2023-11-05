@@ -4,7 +4,6 @@ const mongoose = require("mongoose");
 const userRoutes = require("./routes/userRoute.js");
 const messageRoutes = require("./routes/messageRoute.js");
 const socket = require("socket.io");
-const port = process.env.PORT || 6000
 
 const app = express();
 require("dotenv").config();
@@ -30,6 +29,7 @@ app.use("/api/auth",userRoutes);
 app.use("/api/messages",messageRoutes);
 
 
+const port = process.env.PORT || 6000;
 
 const server = app.listen(port,()=> {
     console.log(`Server Started on port ${port}`);
@@ -37,7 +37,8 @@ const server = app.listen(port,()=> {
 
 const io = socket(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://spectacular-buttercream-dd709e.netlify.app",
+    // "http://localhost:3000",
     credentials: true,
   },
 });
